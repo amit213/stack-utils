@@ -9,3 +9,22 @@
 echo "Welcome, Mr. Anderson."
 
 
+#check if param is empty
+is_param_empty() {
+    if [[ "$@" ]]
+    then
+        return $_FALSE
+    else
+        return $_TRUE  
+    fi      
+}
+
+get_subnet_id() {
+    if is_param_empty "$@"
+    then
+        echo "you forgot to pass the param"
+    else
+        subnet_name=$@
+        echo `neutron subnet-list | grep private-subnet | awk '{ print $2}'`
+    fi
+}
