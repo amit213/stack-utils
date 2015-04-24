@@ -19,7 +19,9 @@ is_param_empty() {
     fi      
 }
 
+## query the internal id for given subnet name.
 get_subnet_id() {
+    echo $@
     if is_param_empty "$@"
     then
         echo "you forgot to pass the param"
