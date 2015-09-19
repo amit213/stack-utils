@@ -1,0 +1,30 @@
+keystone:
+  admin-user: 'admin'
+  admin-password: 'nova'
+  admin-token: 'ubuntutesting'
+
+nova-cloud-controller:
+  network-manager: 'Neutron'
+  quantum-security-groups: 'yes'
+  neutron-external-network: Public_Network
+
+  #network-manager: "FlatDHCPManager"
+
+neutron-gateway:
+  #ext-port: 'lxcbr0'
+  ext-port: 'eth0'
+  plugin: ovs
+
+neutron-api:
+  neutron-security-groups: 'True'
+
+nova-compute:
+  enable-live-migration: 'True'
+  migration-auth-type: "none"
+  virt-type: kvm
+  enable-resize: 'True'
+
+cinder:
+  block-device: None
+  overwrite: "true"
+  glance-api-version: 2

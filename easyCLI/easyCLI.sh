@@ -20,6 +20,7 @@ is_param_empty() {
 }
 
 ## query the internal id for given subnet name.
+## subnet-list
 get_subnet_id() {
     echo $@
     if is_param_empty "$@"
