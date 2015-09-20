@@ -37,12 +37,19 @@ juju add-relation openstack-dashboard keystone
 juju add-relation neutron-api mysql
 juju add-relation neutron-api keystone
 juju add-relation neutron-api rabbitmq-server
-juju add-relation neutron-gateway mysql
-juju add-relation neutron-gateway rabbitmq-server
-juju add-relation neutron-gateway nova-cloud-controller
+#juju add-relation neutron-gateway mysql
+#juju add-relation neutron-gateway rabbitmq-server
+#juju add-relation neutron-gateway nova-cloud-controller
 juju add-relation neutron-api neutron-gateway
 juju add-relation neutron-api neutron-openvswitch
 juju add-relation neutron-api nova-cloud-controller
 juju add-relation neutron-openvswitch rabbitmq-server
 juju add-relation neutron-openvswitch nova-compute
+
+
+juju add-relation neutron-gateway mysql
+juju add-relation neutron-gateway rabbitmq-server
+juju add-relation neutron-gateway nova-cloud-controller
+juju add-relation neutron-gateway:amqp rabbitmq-server:amqp
+juju add-relation neutron-gateway:amqp-nova rabbitmq-server:amqp
 
