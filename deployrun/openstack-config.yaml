@@ -6,18 +6,18 @@ keystone:
 nova-cloud-controller:
   network-manager: 'Neutron'
   quantum-security-groups: 'yes'
-  neutron-external-network: 'ext_net'
+  #neutron-external-network: 'ext_net'
 
   #network-manager: "FlatDHCPManager"
 
 neutron-gateway:
-  #ext-port: 'lxcbr0'
-  ext-port: 'eth0'
+  #ext-port: "lxcbr0"
+  #ext-port: 'eth0'
   #plugin: 'ovs'
 
 neutron-api:
   neutron-security-groups: 'True'
-  neutron-external-network: 'ext_net'
+  #neutron-external-network: 'ext_net'
   neutron-plugin: 'ovs'
 
 
