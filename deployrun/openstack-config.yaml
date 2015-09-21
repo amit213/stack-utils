@@ -15,7 +15,7 @@ neutron-gateway:
   #ext-port: "lxcbr0"
   #ext-port: eth0
   #plugin: 'ovs'
-  instance-mtu=9000
+  #instance-mtu=9000
 
 neutron-api:
   neutron-security-groups: 'True'
@@ -25,7 +25,8 @@ neutron-api:
 
 nova-compute:
   #network-manager: 'Neutron'
-  console-access-protocol: 'novnc'
+  #network-manager: Neutron
+  #console-access-protocol: 'novnc'
   enable-live-migration: 'True'
   migration-auth-type: "none"
   virt-type: kvm
