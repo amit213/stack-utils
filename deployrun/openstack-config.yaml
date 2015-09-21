@@ -4,29 +4,33 @@ keystone:
   admin-token: 'ubuntutesting'
 
 nova-cloud-controller:
-  network-manager: 'Neutron'
+  #network-manager: 'Neutron'
+  network-manager: Neutron
   quantum-security-groups: 'yes'
-  #neutron-external-network: 'ext_net'
+  neutron-external-network: 'public'
 
   #network-manager: "FlatDHCPManager"
 
 neutron-gateway:
   #ext-port: "lxcbr0"
-  #ext-port: 'eth0'
+  #ext-port: eth0
   #plugin: 'ovs'
+  instance-mtu=9000
 
 neutron-api:
   neutron-security-groups: 'True'
-  #neutron-external-network: 'ext_net'
+  neutron-external-network: 'public'
   neutron-plugin: 'ovs'
 
 
 nova-compute:
-  network-manager: 'Neutron'
+  #network-manager: 'Neutron'
+  console-access-protocol: 'novnc'
   enable-live-migration: 'True'
   migration-auth-type: "none"
   virt-type: kvm
   enable-resize: 'True'
+  #flat-interface: 'eth0'
 
 cinder:
   block-device: None

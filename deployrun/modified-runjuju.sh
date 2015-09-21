@@ -1,20 +1,20 @@
 
 
-juju deploy  mysql
-juju deploy --config openstack-config.yaml  keystone
-juju deploy --config openstack-config.yaml  nova-cloud-controller
-juju deploy glance
-juju deploy rabbitmq-server
-juju deploy  openstack-dashboard
-juju deploy  --config openstack-config.yaml cinder
-juju deploy --config openstack-config.yaml neutron-api
-juju deploy  neutron-openvswitch
-juju deploy  nova-compute
-juju deploy --config openstack-config.yaml neutron-gateway
-juju deploy ceilometer
-juju deploy  ceilometer-agent
-juju deploy   heat
-juju deploy  nova-cell
+juju deploy  mysql --to 1
+juju deploy --config openstack-config.yaml  keystone --to 1
+juju deploy --config openstack-config.yaml  nova-cloud-controller --to 1
+juju deploy glance --to 1
+juju deploy rabbitmq-server --to 1
+juju deploy  openstack-dashboard --to 1
+juju deploy  --config openstack-config.yaml cinder --to 1
+juju deploy --config openstack-config.yaml neutron-api --to 1
+juju deploy  neutron-openvswitch 
+juju deploy  nova-compute --to 2
+juju deploy --config openstack-config.yaml neutron-gateway --to 1
+juju deploy ceilometer --to 1
+juju deploy  ceilometer-agent 
+juju deploy   heat --to 1
+juju deploy  nova-cell --to 1
 
 juju add-relation mysql keystone
 juju add-relation nova-cloud-controller mysql
