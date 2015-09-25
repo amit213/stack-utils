@@ -22,4 +22,13 @@ sudo apt-get install python-software-properties -y;
 
 sudo apt-get install software-properties-common python-software-properties -y;
 
+
+## juju prep work
+juju init
+cp -f juju-environment.yaml ~/.juju/environments.yaml
+juju switch local
+juju bootstrap —debug
+juju set-constraints "cpu-cores=1 mem=4096M root-disk=16384M"
+
+
 sudo init 6;
