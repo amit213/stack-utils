@@ -36,6 +36,10 @@ juju add-relation cinder nova-cloud-controller
 juju add-relation cinder keystone
 juju add-relation openstack-dashboard keystone
 
+juju add-relation heat mysql
+juju add-relation heat rabbitmq-server
+juju add-relation heat keystone
+
 #juju add-relation neutron-api mysql
 #juju add-relation neutron-api keystone
 #juju add-relation neutron-api rabbitmq-server
