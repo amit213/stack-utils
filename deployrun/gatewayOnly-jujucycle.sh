@@ -13,6 +13,7 @@ juju deploy ceilometer
 juju deploy  ceilometer-agent
 juju deploy   heat
 juju deploy  nova-cell
+juju deploy mongodb
 juju set-constraints "cpu-cores=3 mem=8096M root-disk=46384M"
 juju deploy  --config openstack-config.yaml nova-compute
 juju deploy --config openstack-config.yaml neutron-gateway
@@ -39,6 +40,17 @@ juju add-relation openstack-dashboard keystone
 juju add-relation heat mysql
 juju add-relation heat rabbitmq-server
 juju add-relation heat keystone
+
+## enable ceilometer endpoint
+juju add-relation ceilometer mongodb
+juju add-relation ceilometer:identity-notifications keystone:identity-notifications
+juju add-relation ceilometer:identity-service keystone:identity-service
+juju add-relation ceilometer rabbitmq-server
+juju add-relation ceilometer-agent nova-compute
+juju add-relation ceilometer:ceilometer-service ceilometer-agent:ceilometer-service
+juju expose mongodb
+juju expose ceilometer
+juju expose ceilometer-agent
 
 #juju add-relation neutron-api mysql
 #juju add-relation neutron-api keystone
