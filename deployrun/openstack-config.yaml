@@ -34,6 +34,7 @@ nova-compute:
   #flat-interface: 'eth0'
 
 cinder:
-  block-device: None
+  #block-device: None
+  block-device: sdc
   overwrite: "true"
   glance-api-version: 2
