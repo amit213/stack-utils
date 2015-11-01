@@ -1,9 +1,12 @@
 
 
+juju set-constraints "cpu-cores=1 mem=4096M root-disk=16384M"
 juju deploy  mysql
 juju deploy --config openstack-config.yaml  keystone
 juju deploy --config openstack-config.yaml  nova-cloud-controller
+juju set-constraints "cpu-cores=1 mem=4096M root-disk=146384M"
 juju deploy glance
+juju set-constraints "cpu-cores=1 mem=4096M root-disk=16384M"
 juju deploy rabbitmq-server
 juju deploy  openstack-dashboard
 juju deploy  --config openstack-config.yaml cinder
@@ -49,6 +52,7 @@ juju add-relation ceilometer rabbitmq-server
 juju add-relation ceilometer-agent nova-compute
 juju add-relation ceilometer:ceilometer-service ceilometer-agent:ceilometer-service
 juju expose mongodb
+juju expose openstack-dashboard
 juju expose ceilometer
 juju expose ceilometer-agent
 
@@ -74,14 +78,15 @@ juju add-relation neutron-gateway:amqp-nova rabbitmq-server:amqp
 ## additional virtual nic required for neutron-gateway
 
 sudo virsh net-list
-sudo virsh net-define custom-virtual-nic3.xml
-sudo virsh net-define custom-virtual-nic4.xml
+#sudo virsh net-define custom-virtual-nic3.xml
+#sudo virsh net-define custom-virtual-nic4.xml
 sudo virsh net-autostart  bridge70
 sudo virsh net-autostart  bridge80
 sudo virsh net-start bridge70
 sudo virsh net-start bridge80
-neutronGatewayMachine=`juju stat neutron-gateway |  grep instance | awk '{print $2}'`
+juju set neutron-gateway instance-mtu=9000
+#neutronGatewayMachine=`juju stat neutron-gateway |  grep instance | awk '{print $2}'`
 
-sudo virsh attach-interface --domain $neutronGatewayMachine  --type network  --source bridge70 --model virtio --config --live
-sudo virsh attach-interface --domain $neutronGatewayMachine  --type network  --source bridge80 --model virtio --config --live
+#sudo virsh attach-interface --domain $neutronGatewayMachine  --type network  --source bridge70 --model virtio --config --live
+#sudo virsh attach-interface --domain $neutronGatewayMachine  --type network  --source bridge80 --model virtio --config --live
 

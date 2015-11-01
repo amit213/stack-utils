@@ -8,6 +8,7 @@ nova-cloud-controller:
   network-manager: Neutron
   quantum-security-groups: 'yes'
   neutron-external-network: 'public'
+  console-access-protocol: 'novnc'
 
   #network-manager: "FlatDHCPManager"
 
