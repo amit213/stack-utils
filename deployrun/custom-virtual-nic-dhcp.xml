@@ -2,10 +2,10 @@
 <network>
   <name>bridgeDHCP</name>
   <bridge name="bridgeDHCP" />
-  <forward mode="route" dev="eth0:1"/>
-  <ip address='20.20.20.2' netmask='255.255.255.0'>
+  <forward mode="route" dev="eth0"/>
+  <ip address='158.69.39.112' netmask='255.255.255.0'>
     <dhcp>
-      <range start='20.20.20.3' end='20.20.20.254' />
+      <range start='158.69.39.113' end='158.69.39.119' />
     </dhcp>
   </ip>
 

@@ -90,3 +90,4 @@ juju set neutron-gateway instance-mtu=9000
 #sudo virsh attach-interface --domain $neutronGatewayMachine  --type network  --source bridge70 --model virtio --config --live
 #sudo virsh attach-interface --domain $neutronGatewayMachine  --type network  --source bridge80 --model virtio --config --live
 
+#juju set neutron-gateway 'ext-port=eth1'
