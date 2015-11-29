@@ -84,7 +84,7 @@ sudo virsh net-autostart  bridge70
 sudo virsh net-autostart  bridge80
 sudo virsh net-start bridge70
 sudo virsh net-start bridge80
-juju set neutron-gateway instance-mtu=9000
+#juju set neutron-gateway instance-mtu=9000
 #neutronGatewayMachine=`juju stat neutron-gateway |  grep instance | awk '{print $2}'`
 
 #sudo virsh attach-interface --domain $neutronGatewayMachine  --type network  --source bridge70 --model virtio --config --live
