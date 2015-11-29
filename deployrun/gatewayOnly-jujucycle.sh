@@ -75,6 +75,8 @@ juju add-relation neutron-gateway nova-cloud-controller
 juju add-relation neutron-gateway:amqp rabbitmq-server:amqp
 juju add-relation neutron-gateway:amqp-nova rabbitmq-server:amqp
 
+juju set openstack-dashboard neutron-network-lb=True
+
 ## additional virtual nic required for neutron-gateway
 
 sudo virsh net-list
