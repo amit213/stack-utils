@@ -67,11 +67,25 @@ environments:
       # This parameter is optional. 
       extenal-network:
     # https://juju.ubuntu.com/docs/config-local.html
+
+    openstackOnMetal:
+        type: local
+        lxc-clone: true
+        container: kvm
+        #network-bridge: bridgeDHCP
+        #network-bridge: bridgeOVH180
+        network-bridge: lxcbr0
+        storage-port: 8041
+        state-port: 37018
+        api-port: 17071
+
     local:
         type: local
         lxc-clone: true
         container: kvm
-        network-bridge: lxcbr0
+        #network-bridge: bridgeDHCP
+        network-bridge: bridgeOVH180
+        #network-bridge: lxcbr0
 
         # root-dir holds the directory that is used for the storage files and
         # database. The default location is $JUJU_HOME/<env-name>.

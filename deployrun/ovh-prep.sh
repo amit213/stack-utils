@@ -9,7 +9,7 @@ sudo ansible-playbook -i "localhost," -c local /var/scratch/bootcampAL1/ansibles
 
 sudo apt-add-repository ppa:juju/stable -y;
 sudo apt-get update -y;
-sudo apt-get install juju-local qemu-kvm libvirt-bin bridge-utils virt-manager qemu-system uvtool-libvirt uvtool nfs-kernel-server -y;
+sudo apt-get install juju-local qemu-kvm libvirt-bin bridge-utils virt-manager qemu-system uvtool-libvirt uvtool nfs-kernel-server qemu-utils -y;
 sudo adduser vmuser libvirtd;
 sudo adduser vmuser kvm;
 sudo apt-get upgrade -y;
