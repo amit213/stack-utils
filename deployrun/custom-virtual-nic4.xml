@@ -1,7 +1,0 @@
-
-<network>
-  <name>bridge80</name>
-  <forward mode='bridge'/>
-  <bridge name='lxcbr0' delay='0' />
-</network>
-
